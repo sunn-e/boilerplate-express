@@ -22,6 +22,11 @@ app.get(
     res.send({ time: req.time });
   }
 );
+app.get("/:word/echo", function (req, res) {
+  let word = req.params.word;
+  res.send({ echo: word });
+});
+
 app.get("/json", (req, res) => {
   let response = "";
   if (process.env.MESSAGE_STYLE === "uppercase") {
