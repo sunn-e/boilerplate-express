@@ -22,6 +22,7 @@ app.get(
     res.send({ time: req.time });
   }
 );
+
 app.get("/:word/echo", function (req, res) {
   let word = req.params.word;
   res.send({ echo: word });
@@ -38,6 +39,11 @@ app.get("/json", (req, res) => {
     message: response,
   });
 });
+
+app.route("/name").get(function (req, res) {
+  res.send({ name: req.query.first + " " + req.query.last });
+});
+//can add .post to handle post on same route
 
 app.use("/public", express.static(__dirname + "/public"));
 module.exports = app;
