@@ -1,8 +1,13 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var app = express();
 
 require("dotenv").config();
 console.log("Hello World");
+
+//accepts only UTF-8 encoding of the body
+//RL-encoded data with the querystring library (when false)
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
