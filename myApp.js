@@ -51,6 +51,7 @@ app.route("/name").get(function (req, res) {
 
 app.post("/name", function (req, res) {
   res.send({ name: req.body.first + " " + req.body.last });
+  //or res.json()
 });
 //can add .post to handle post on same route
 
