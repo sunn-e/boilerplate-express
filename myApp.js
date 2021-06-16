@@ -48,6 +48,10 @@ app.get("/json", (req, res) => {
 app.route("/name").get(function (req, res) {
   res.send({ name: req.query.first + " " + req.query.last });
 });
+
+app.post("/name", function (req, res) {
+  res.send({ name: req.body.first + " " + req.body.last });
+});
 //can add .post to handle post on same route
 
 app.use("/public", express.static(__dirname + "/public"));
